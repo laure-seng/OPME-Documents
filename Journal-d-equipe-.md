@@ -199,9 +199,11 @@ Perso je suis pas à l'aise avec ces mots
 
 -  Laurent : Fixtures sur embroidery
 -  Eva : Créer une entité Customer + controller
--  Laure : Fixtures
+-  Laure : Fixtures + entité Textile
 
 JSON FORMATTER extension chrome
+
+
 
 
 

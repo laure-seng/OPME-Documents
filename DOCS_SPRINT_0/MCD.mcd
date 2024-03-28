@@ -1,13 +1,13 @@
 CUSTOMER: customer_code, name, address, email, phone_number, contact
 SUBSCRIBE, 11 CONTRACT, 0N CUSTOMER
-CONTRACT : contract_code, type, ordered_at, invoiced_at,delivery_address, followed_by, status, comments
+CONTRACT : contract_code, type, ordered_at, invoiced_at,delivery_address,status, comment
 CONTAIN , 11 PRODUCT, 1N CONTRACT
-PRODUCT : product_code, product_name, quantity, price, manufacturing_delay,delivery_at, product_order,comments
+PRODUCT : product_code, name, quantity, price, manufacturing_delay,delivery_at, product_order,comment
 MADE_OF1 , 0N EMBROIDERY, 11 PRODUCT
 
 :
 USER : user_code, pseudo, password, role
-VALIDATE , 0n USER, 01 CONTRACT
-TEXTILE : textile_code, textile_name,type, size, color, brand, comment
+VALIDATE , 0n USER, 11 CONTRACT
+TEXTILE : textile_code, name,type, size, color, brand, comment
 MADE_OF2 , 0N TEXTILE, 01 PRODUCT
-EMBROIDERY : embroidery_code, embroidery_name, design, text, details
+EMBROIDERY : embroidery_code, name, design, text, detail

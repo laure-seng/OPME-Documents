@@ -195,6 +195,15 @@ Perso je suis pas à l'aise avec ces mots
 - controller test pour une route index
 - déploiement
 
+# Vendredi 29 Mars 2024
+
+-  Laurent : Fixtures sur embroidery
+-  Eva : Créer une entité Customer + controller
+-  Laure : Fixtures
+
+JSON FORMATTER extension chrome
+
+
 
 
 

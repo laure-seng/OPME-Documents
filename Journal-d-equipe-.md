@@ -184,6 +184,17 @@ Perso je suis pas à l'aise avec ces mots
 - les termes add/delete me parlent mieux que create/destroy
 - mais bon on choisira en créant le premier controller, il sera encore temps de modifier au début.
 
+------------------------------------------------------------------------------------------------------
+
+# Jeudi 28 Mars 2024
+
+## Ce que l'équipe Back va faire dans les prochains jours :
+
+- install de symfony
+- création d'une entité et de fixtures liées
+- controller test pour une route index
+- déploiement
+
 
 
 

@@ -42,3 +42,37 @@ Puis on est revenu sur PHPmyAdmin pour faire le MPD.
 5. Commentaires
 
 -------------------------
+
+
+----------------------------
+
+# Problèmes avec les validations de contraintes  : DateTime
+
+1. Description du problème rencontré
+
+Lors du Create, la date mise en string empêche l'enregistrement car elle n'est pas valide par rapport à la contrainte `#[Assert\DateTime]`  
+
+2. Solutions envisagées
+
+Trouver une autre syntaxe
+
+3. Recherches effectuées / Outils trouvés / Confrontation des solutions / Cheminement ...
+
+On a essayé     
+Eva : `#[ORM\Column(type: "datetime", nullable: true)]`
+Mais en fait on s'est rendu compte que ça faisait doublon avec celui mis avant
+Et du coup la migration renvoyait une erreur.
+On a copié collé cent foisw pour effacer cent fois...
+
+4. Solution appliquée  
+
+Laurent a trouvé cette syntaxe qui semble fonctionner.
+    #[Assert\type(Types::DATE_IMMUTABLE)]
+On va l'éprouver avant de faire les rectis dans toutes les entités hein.
+
+5. Commentaires  
+
+Ne pas appliquer un changement trop vite. Noter le problème pour ne pas oublier ce qu'on recherchait.
+Finalement, on a compris qu'il y avait deux types de validation à mettre en place : via Symfo et via Doctrine.
+
+-------------------------

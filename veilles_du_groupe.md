@@ -40,11 +40,11 @@ Puis on est revenu sur PHPmyAdmin pour faire le MPD.
 - Le schéma est riquiqui -> faire une capture d'écran éventuellement.
 
 5. Commentaires
+aa
 
--------------------------
+---
 
 
-----------------------------
 
 # Problèmes avec les validations de contraintes  : DateTime
 
@@ -75,4 +75,52 @@ On va l'éprouver avant de faire les rectis dans toutes les entités hein.
 Ne pas appliquer un changement trop vite. Noter le problème pour ne pas oublier ce qu'on recherchait.
 Finalement, on a compris qu'il y avait deux types de validation à mettre en place : via Symfo et via Doctrine.
 
--------------------------
+---
+
+
+# Problèmes avec les validations de contraintes  : Enum
+
+1. Description du problème rencontré
+
+Le type Enum n'est pas implémenté dans Doctrine contrairement à dans Eloquent.
+
+2. Solutions envisagées
+
+On a essayé des annotations différentes sans succès.
+
+3. Recherches effectuées / Outils trouvés / Confrontation des solutions / Cheminement ...
+
+### On a essayé d'adapter /comprendre
+
+a. le tuto de symfonyCasts
+
+b. https://knplabs.com/en/blog/how-to-map-a-php-enum-with-doctrine-in-a-symfony-project/ 
+
+c. https://debest.fr/en/blog/php-8-1-enums-doctrine-and-symfony-enumtype    
+
+d. https://smaine-milianni.medium.com/use-php-enums-as-doctrine-type-in-symfony-85909aa0a19a 
+
+Il existe un bundle sympa pour avoir tous les types SQL dans Doctrine (mais pas ENUM ;) )**https://github.com/beberlei/DoctrineExtensions**
+
+
+La solution la plus appropriée semblerait de créer un type custom en suivant la doc de Doctrine mais j'ai trouvé une solution "rustine" moins chronophage : mettre un champ texte avec des valeurs imposées.
+
+4. Solution appliquée  
+
+``` composer require symfony/expression-language ```
+
+```
+    #[Assert\ExpressionSyntax(
+        allowedVariables: ['user', 'shipping_centers'],
+    )]
+    protected string $shippingOptions;
+
+```
+On peut personnaliser le message
+
+5. Commentaires  
+
+Il y avait aussi la possibilité d'utiliser un assert de type choices ?
+
+---
+
